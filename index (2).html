@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Net Worth Number Formatter | FortuneetFame</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --peach-1: #fff6f0;
+      --peach-2: #ffe6d6;
+      --card: #fffaf7;
+      --accent: #f79463;
+      --accent-dark: #e0642e;
+      --text: #4a2e1b;
+      --muted: #6d4b3e;
+    }
+
+    html,body{
+      height: 100%;
+      margin: 0;
+      font-family: "Poppins", system-ui, Arial, sans-serif;
+      background: linear-gradient(135deg, var(--peach-1), var(--peach-2));
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .page {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      box-sizing: border-box;
+      min-height: 100%;
+    }
+
+    .card {
+      max-width: 880px;
+      width: 100%;
+      background: var(--card);
+      border-radius: 14px;
+      padding: 32px;
+      box-shadow: 0 10px 30px rgba(255, 178, 138, 0.2);
+      border: 1px solid rgba(255, 212, 178, 0.6);
+    }
+
+    h1 {
+      margin: 0 0 12px 0;
+      font-size: 28px;
+      color: var(--accent-dark);
+      font-weight: 600;
+    }
+
+    h2 {
+      margin: 22px 0 10px 0;
+      font-size: 20px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    p {
+      margin: 10px 0;
+      line-height: 1.6;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .tool-area {
+      margin: 20px 0 6px 0;
+      padding: 18px;
+      background: #fff0e7;
+      border-radius: 12px;
+      border: 1px solid #ffd4b2;
+    }
+
+    .tool-header {
+      margin: 0 0 10px 0;
+      font-weight: 600;
+      color: var(--accent-dark);
+      font-size: 17px;
+    }
+
+    .tool-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    input[type="number"] {
+      width: 220px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 2px solid #f5b48c;
+      background: #fffdfb;
+      outline: none;
+      font-size: 15px;
+      text-align: center;
+    }
+
+    input[type="number"]:focus {
+      box-shadow: 0 0 8px rgba(247,148,99,0.25);
+      border-color: var(--accent);
+    }
+
+    .format-btn {
+      padding: 10px 14px;
+      border: none;
+      border-radius: 10px;
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .format-btn:hover{
+      background: #e37642;
+    }
+
+    .example {
+      margin-top: 12px;
+      color: #8b5a3c;
+      font-size: 14px;
+      font-style: italic;
+    }
+
+    .result-row {
+      margin-top: 14px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .result-box {
+      padding: 10px 14px;
+      background: #fff3ec;
+      border-radius: 10px;
+      border: 1px solid #ffd4b2;
+      font-weight: 600;
+      color: var(--accent-dark);
+      font-size: 17px;
+      min-width: 120px;
+      text-align: center;
+    }
+
+    .copy-btn {
+      padding: 8px 12px;
+      border-radius: 9px;
+      border: none;
+      background: #ffd1b0;
+      color: #6b3a1d;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .copy-btn.copied {
+      background: var(--accent);
+      color: white;
+    }
+
+    .footer {
+      margin-top: 22px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .link {
+      color: var(--accent-dark);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    /* responsive */
+    @media (max-width: 600px){
+      .card{ padding: 20px; }
+      .tool-row{ flex-direction: column; align-items: stretch; }
+      input[type="number"]{ width: 100%; }
+      .result-row{ flex-direction: column; align-items: stretch; }
+      .result-box{ min-width: 100%; text-align: left; padding-left: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <main class="card" role="main">
+      <h1>Net Worth Number Formatter</h1>
+
+      <p>
+        People like to read about how much money famous people make.
+        Actors singers athletes and online stars earn money in many ways.
+        Some earn from music or film and some earn by selling products.
+      </p>
+
+      <p>
+        When we see a large number it can be hard to read.
+        I made a small and simple tool that turns big numbers into short forms.
+        The tool helps you show numbers like a writer would show them.
+      </p>
+
+      <h2>Why this tool helps</h2>
+      <p>
+        It makes big numbers easy to read.
+        It makes your posts look clean and neat.
+        It is quick to use and it is free to try.
+      </p>
+
+      <h2>Try the Net Worth Number Formatter</h2>
+
+      <div class="tool-area" aria-label="Net Worth tool area">
+        <div class="tool-header">Enter a number and press format</div>
+
+        <div class="tool-row">
+          <input id="numberInput" type="number" placeholder="Enter a number" aria-label="Number input">
+          <button class="format-btn" id="formatBtn" type="button">Format</button>
+        </div>
+
+        <div class="example">Example 100000000 → $100M</div>
+
+        <div class="result-row">
+          <div class="result-box" id="resultBox" aria-live="polite"></div>
+          <button class="copy-btn" id="copyBtn" type="button">Copy</button>
+        </div>
+      </div>
+
+      <h2>How it works</h2>
+      <p>
+        The tool turns numbers into short forms using K for thousand M for million and B for billion.
+        It keeps two decimal places when the number needs them and it removes extra zeros.
+      </p>
+
+      <h2>Read more</h2>
+      <p>
+        If you like stories about celebrity money and success visit
+        <a class="link" href="https://fortuneetfame.com" target="_blank" rel="noopener">FortuneetFame</a>.
+        You will find short news simple facts and more tools.
+      </p>
+
+      <div class="footer">
+        <p>Made with care for readers and writers. You can copy this tool to your page and use it right away.</p>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Formatter logic
+    function formatNumberShort(n){
+      // ensure number is finite
+      if (!isFinite(n)) return null;
+      var abs = Math.abs(n);
+      var sign = n < 0 ? "-" : "";
+      if (abs >= 1_000_000_000){
+        var v = (abs / 1_000_000_000);
+        return sign + "$" + trimZero(v.toFixed(2)) + "B";
+      } else if (abs >= 1_000_000){
+        var v = (abs / 1_000_000);
+        return sign + "$" + trimZero(v.toFixed(2)) + "M";
+      } else if (abs >= 1_000){
+        var v = (abs / 1_000);
+        return sign + "$" + trimZero(v.toFixed(2)) + "K";
+      } else {
+        return sign + "$" + String(n);
+      }
+    }
+
+    function trimZero(s){
+      // remove .00 or trailing zero like 1.50 -> 1.5
+      return s.replace(/\.00$/, "").replace(/(\.\d)0$/, "$1");
+    }
+
+    // UI
+    var inputEl = document.getElementById("numberInput");
+    var resultBox = document.getElementById("resultBox");
+    var formatBtn = document.getElementById("formatBtn");
+    var copyBtn = document.getElementById("copyBtn");
+
+    function showMessage(msg){
+      resultBox.textContent = msg;
+    }
+
+    function formatAction(){
+      var val = inputEl.value.trim();
+      if (val === "" ){
+        showMessage("Please enter a valid number.");
+        resultBox.style.color = "#e74c3c";
+        return;
+      }
+      // parse as number
+      var num = Number(val);
+      if (!isFinite(num)){
+        showMessage("Please enter a valid number.");
+        resultBox.style.color = "#e74c3c";
+        return;
+      }
+      var formatted = formatNumberShort(num);
+      if (formatted === null){
+        showMessage("Please enter a valid number.");
+        resultBox.style.color = "#e74c3c";
+        return;
+      }
+      resultBox.style.color = "var(--accent-dark)";
+      showMessage(formatted);
+    }
+
+    formatBtn.addEventListener("click", formatAction);
+
+    inputEl.addEventListener("keydown", function(e){
+      if (e.key === "Enter"){
+        formatAction();
+      }
+    });
+
+    copyBtn.addEventListener("click", function(){
+      var text = resultBox.textContent || "";
+      if (!text || text === "Please enter a valid number."){
+        return;
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){
+          copyBtn.classList.add("copied");
+          copyBtn.textContent = "Copied";
+          setTimeout(function(){
+            copyBtn.classList.remove("copied");
+            copyBtn.textContent = "Copy";
+          }, 1200);
+        }).catch(function(){
+          // fallback
+          fallbackCopy(text);
+        });
+      } else {
+        fallbackCopy(text);
+      }
+    });
+
+    function fallbackCopy(text){
+      var area = document.createElement("textarea");
+      area.value = text;
+      document.body.appendChild(area);
+      area.select();
+      try {
+        document.execCommand("copy");
+        copyBtn.classList.add("copied");
+        copyBtn.textContent = "Copied";
+        setTimeout(function(){
+          copyBtn.classList.remove("copied");
+          copyBtn.textContent = "Copy";
+        }, 1200);
+      } catch (e){
+        alert("Copy failed. You can select and copy the text manually.");
+      }
+      document.body.removeChild(area);
+    }
+
+    // show example by default
+    resultBox.textContent = "";
+  </script>
+</body>
+</html>
