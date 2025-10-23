@@ -3,8 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ✅ SEO Meta Tags -->
   <title>Net Worth Number Formatter | FortuneetFame</title>
+  <meta name="description" content="Easily convert large money amounts like 100000000 into short forms such as $100M. A free Net Worth Number Formatter by FortuneetFame for writers and readers.">
+  <meta name="keywords" content="net worth, celebrity net worth, money formatter, number converter, billion million calculator, fortuneetfame tool">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://yourusername.github.io/">
+
+  <!-- ✅ Optional: Add this later for Google Search Console verification -->
+  <!-- <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE_HERE"> -->
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     :root{
       --peach-1: #fff6f0;
@@ -246,9 +257,7 @@
   </div>
 
   <script>
-    // Formatter logic
     function formatNumberShort(n){
-      // ensure number is finite
       if (!isFinite(n)) return null;
       var abs = Math.abs(n);
       var sign = n < 0 ? "-" : "";
@@ -267,11 +276,9 @@
     }
 
     function trimZero(s){
-      // remove .00 or trailing zero like 1.50 -> 1.5
       return s.replace(/\.00$/, "").replace(/(\.\d)0$/, "$1");
     }
 
-    // UI
     var inputEl = document.getElementById("numberInput");
     var resultBox = document.getElementById("resultBox");
     var formatBtn = document.getElementById("formatBtn");
@@ -288,7 +295,6 @@
         resultBox.style.color = "#e74c3c";
         return;
       }
-      // parse as number
       var num = Number(val);
       if (!isFinite(num)){
         showMessage("Please enter a valid number.");
@@ -306,7 +312,6 @@
     }
 
     formatBtn.addEventListener("click", formatAction);
-
     inputEl.addEventListener("keydown", function(e){
       if (e.key === "Enter"){
         formatAction();
@@ -315,9 +320,8 @@
 
     copyBtn.addEventListener("click", function(){
       var text = resultBox.textContent || "";
-      if (!text || text === "Please enter a valid number."){
-        return;
-      }
+      if (!text || text === "Please enter a valid number.") return;
+
       if (navigator.clipboard && navigator.clipboard.writeText){
         navigator.clipboard.writeText(text).then(function(){
           copyBtn.classList.add("copied");
@@ -327,7 +331,6 @@
             copyBtn.textContent = "Copy";
           }, 1200);
         }).catch(function(){
-          // fallback
           fallbackCopy(text);
         });
       } else {
@@ -354,9 +357,7 @@
       document.body.removeChild(area);
     }
 
-    // show example by default
     resultBox.textContent = "";
   </script>
 </body>
 </html>
-
